@@ -9,6 +9,10 @@ jobs:
     runs-on: 
       labels: Nightly_Runner
     steps:
+      - name: print uname
+        shell: bash
+        run: |
+            uname -a
       - name: wait runner up
         shell: bash
         run: |
