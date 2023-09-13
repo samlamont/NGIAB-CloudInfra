@@ -12,7 +12,8 @@ on:
     
 jobs:
   build-and-push:
-    runs-on: self-hosted
+    runs-on: 
+      labels: Nightly_Runner
     strategy:
       matrix:
           architecture: [arm64]
