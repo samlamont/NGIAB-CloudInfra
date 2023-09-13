@@ -1,0 +1,14 @@
+name: Runner Test
+on:
+  schedule:
+    - cron: "1 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  test-run:
+    runs-on: Nightly_Runner
+    steps:
+      - name: wait runner up
+        shell: bash
+        run: |
+            echo "testing github runner"
