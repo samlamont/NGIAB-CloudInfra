@@ -37,9 +37,9 @@ runs:
         context: ./docker
         file: ./docker/${{ inputs.dockerfile-name}}
         push: true
-        platforms: linux/arm64
+        platforms: linux/x86
         tags: |
-          awiciroh/${{ inputs.image-name}}:latest
+          awiciroh/${{ inputs.image-name}}:latest-linux-x86
         builder: mybuilder
       env:
         DOCKER_BUILDKIT: 1
