@@ -6,7 +6,8 @@ on:
 
 jobs:
   test-run:
-    runs-on: Nightly_Runner
+    runs-on: 
+      labels: Nightly_Runner
     steps:
       - name: wait runner up
         shell: bash
