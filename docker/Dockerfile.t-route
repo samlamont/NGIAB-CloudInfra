@@ -40,7 +40,7 @@ RUN cp -s /usr/bin/python3 /usr/bin/python \
     && cd ${WORKDIR}/t-route \
     && mkdir wheels \
     && pip3 install -r ./requirements.txt \
-    && pip3 install wheel deprecated dask pyarrow geopandas
+    && pip3 install wheel deprecated dask pyarrow<12.0.0 geopandas
     RUN export FC=gfortran NETCDF=/usr/include \
     && cd ${WORKDIR}/t-route \
     && ./compiler.sh \
