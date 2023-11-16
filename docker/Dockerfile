@@ -1,7 +1,7 @@
 ################################################################################################################
 ################################################################################################################
 ##### Penultimate stage for image
-FROM awiciroh/ngen as rocky_build_staging
+FROM awiciroh/ngen:latest-arm-test as rocky_build_staging
 
 ARG DATASET_DIRECTORIES
 
