@@ -43,7 +43,7 @@ runs:
         platforms: linux/arm64
         build-args: commit=${{ inputs.commit-id}}
         tags: |
-          awiciroh/${{ inputs.image-name}}:latest
+          awiciroh/${{ inputs.image-name}}:latest-arm-test
         builder: mybuilder
       env:
         DOCKER_BUILDKIT: 1
