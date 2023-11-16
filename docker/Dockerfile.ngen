@@ -4,7 +4,7 @@
 ARG NGEN_BUILD_CONFIG_TYPE="Release" \
     REPO_URL=https://github.com/NOAA-OWP/ngen.git \
     BRANCH=master \
-    COMMIT=0e33df6 \
+    COMMIT \
     WORKDIR=/ngen
 
 
