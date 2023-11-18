@@ -11,7 +11,6 @@ ARG NGEN_BUILD_CONFIG_TYPE="Release" \
 ################################################################################################################
 ################################################################################################################
 ##### Create intermediate Docker build stage for building framework in Rocky Linux environment
-ENV TAG_NAME=${TAG_NAME}
 FROM awiciroh/ngen-deps:${TAG_NAME} as rocky_init_repo
 ARG REPO_URL \
     BRANCH \
@@ -19,6 +18,7 @@ ARG REPO_URL \
     WORKDIR \
     UPDATE=2023-04-27
 
+ENV TAG_NAME=${TAG_NAME}
 WORKDIR ${WORKDIR}
 
 RUN cd ${WORKDIR} \
