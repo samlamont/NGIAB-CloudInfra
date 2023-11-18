@@ -14,6 +14,9 @@ inputs:
   dockerfile-name:
     description: 'The name of dockerfile to use'
     required: true
+  tag-name:
+    description: 'The name of tag for the image'
+    required: true
 
 runs:
   using: "composite"
@@ -36,10 +39,11 @@ runs:
       with:
         context: ./docker
         file: ./docker/${{ inputs.dockerfile-name}}
+        build-args: tag_name=${{ inputs.tag-name}}
         push: true
         platforms: linux/arm64
         tags: |
-          awiciroh/${{ inputs.image-name}}:latest
+          awiciroh/${{ inputs.image-name}}:${{ inputs.tag-name}}
         builder: mybuilder
       env:
         DOCKER_BUILDKIT: 1
