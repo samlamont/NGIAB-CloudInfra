@@ -8,7 +8,6 @@ ARG NGEN_BUILD_CONFIG_TYPE="Release" \
     WORKDIR=/ngen \
     TAG_NAME
 
-TAG_NAME ${TAG_NAME}
 ################################################################################################################
 ################################################################################################################
 ##### Create intermediate Docker build stage for building framework in Rocky Linux environment
