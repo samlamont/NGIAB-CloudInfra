@@ -24,6 +24,7 @@ jobs:
           github-sha: ${{ github.sha }}
           image-name: "ciroh-ngen-image"
           dockerfile-name: "Dockerfile"
+          tag-name: "tag-test"
       - name: Publish slack message
         if: always()
         uses: ./.github/action_templates/slack

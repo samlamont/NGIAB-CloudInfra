@@ -11,7 +11,8 @@ ARG NGEN_BUILD_CONFIG_TYPE="Release" \
 ################################################################################################################
 ################################################################################################################
 ##### Create intermediate Docker build stage for building framework in Rocky Linux environment
-FROM awiciroh/ngen-deps:latest as rocky_init_repo
+ARG TAG_NAME
+FROM awiciroh/ngen-deps:${TAG_NAME} as rocky_init_repo
 ARG REPO_URL \
     BRANCH \
     COMMIT \
@@ -39,7 +40,8 @@ RUN cd ${WORKDIR} \
 
 ################################################################################################################
 ################################################################################################################
-FROM awiciroh/ngen-deps:latest as rocky_ngen_build_testing
+ARG TAG_NAME
+FROM awiciroh/ngen-deps:${TAG_NAME} as rocky_ngen_build_testing
 
 COPY --chown=${USER} --from=rocky_init_repo ${WORKDIR}/ngen ${WORKDIR}/ngen
 ENV BOOST_ROOT=${WORKDIR}/boost
@@ -48,7 +50,8 @@ WORKDIR ${WORKDIR}/ngen
 ################################################################################################################
 ################################################################################################################
 ##### Create intermediate Docker build stage for building framework in Rocky Linux environment
-FROM awiciroh/ngen-deps:latest as rocky_build_ngen
+ARG TAG_NAME
+FROM awiciroh/ngen-deps:${TAG_NAME} as rocky_build_ngen
 
 ARG REPO_URL \
     BRANCH \
@@ -71,8 +74,8 @@ ARG REPO_URL \
     BUILD_SLOTH="true"
 
 COPY --chown=${USER} --from=rocky_init_repo ${WORKDIR}/ngen ${WORKDIR}/ngen
-COPY --chown=${USER} --from=awiciroh/t-route:latest ${WORKDIR}/t-route/wheels /tmp/t-route-wheels
-COPY --chown=${USER} --from=awiciroh/t-route:latest ${WORKDIR}/t-route/requirements.txt /tmp/t-route-requirements.txt
+COPY --chown=${USER} --from=awiciroh/t-route:${TAG_NAME} ${WORKDIR}/t-route/wheels /tmp/t-route-wheels
+COPY --chown=${USER} --from=awiciroh/t-route:${TAG_NAME} ${WORKDIR}/t-route/requirements.txt /tmp/t-route-requirements.txt
 ENV BOOST_ROOT=${WORKDIR}/boost
 
 USER root
