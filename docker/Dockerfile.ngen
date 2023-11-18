@@ -71,7 +71,8 @@ ARG REPO_URL \
     BUILD_CFE="true" \
     BUILD_TOPMODEL="true" \
     BUILD_PET="true" \
-    BUILD_SLOTH="true"
+    BUILD_SLOTH="true" \
+    TAG_NAME
 
 COPY --chown=${USER} --from=rocky_init_repo ${WORKDIR}/ngen ${WORKDIR}/ngen
 COPY --chown=${USER} --from=awiciroh/t-route:${TAG_NAME} ${WORKDIR}/t-route/wheels /tmp/t-route-wheels
