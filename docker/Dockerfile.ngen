@@ -11,6 +11,8 @@ ARG NGEN_BUILD_CONFIG_TYPE="Release" \
 
 ################################################################################################################
 ################################################################################################################
+ARG COMMIT_ID
+ARG COMMIT=${COMMIT_ID}
 ##### Create intermediate Docker build stage for building framework in Rocky Linux environment
 FROM awiciroh/ngen-deps:${TAG_NAME} as rocky_init_repo
 ARG REPO_URL \
