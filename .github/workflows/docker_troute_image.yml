@@ -25,6 +25,7 @@ jobs:
           image-name: "t-route"
           dockerfile-name: "Dockerfile.t-route"
           tag-name: "tag-test"
+          commit-id: "a0ff6cf"
   on-failure:
     runs-on: self-hosted
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}

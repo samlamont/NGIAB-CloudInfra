@@ -17,6 +17,9 @@ inputs:
   tag-name:
     description: 'The name of tag for the image'
     required: true
+  commit-id:
+    description: 'Commit to be used in the target repo'
+    required: false
 
 runs:
   using: "composite"
@@ -39,7 +42,8 @@ runs:
       with:
         context: ./docker
         file: ./docker/${{ inputs.dockerfile-name}}
-        build-args: TAG_NAME=${{ inputs.tag-name}}
+        build-args: |
+          TAG_NAME=${{ inputs.tag-name}}, COMMIT_ID=${{ inputs.commit-id}}
         push: true
         platforms: linux/arm64
         tags: |
