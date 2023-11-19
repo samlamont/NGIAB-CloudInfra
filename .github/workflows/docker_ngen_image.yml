@@ -25,7 +25,7 @@ jobs:
           image-name: "ngen"
           dockerfile-name: "Dockerfile.ngen"
           tag-name: "tag-test"
-          commit-id: "7551590"
+          #commit-id: "7551590"
   on-failure:
     runs-on: self-hosted
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
