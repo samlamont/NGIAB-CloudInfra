@@ -43,7 +43,8 @@ runs:
         context: ./docker
         file: ./docker/${{ inputs.dockerfile-name}}
         build-args: |
-          TAG_NAME=${{ inputs.tag-name}}, COMMIT_ID=${{ inputs.commit-id}}
+          TAG_NAME=${{ inputs.tag-name}}
+          COMMIT_ID=${{ inputs.commit-id}}
         push: true
         platforms: linux/arm64
         tags: |
