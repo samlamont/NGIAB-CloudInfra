@@ -45,6 +45,9 @@ COPY --chown=${USER} --from=rocky_init_repo ${WORKDIR}/ngen ${WORKDIR}/ngen
 ENV BOOST_ROOT=${WORKDIR}/boost
 WORKDIR ${WORKDIR}/ngen
 
+# Make an alias for t-route with tag name
+FROM awiciroh/t-route:tag-test as troute
+
 ################################################################################################################
 ################################################################################################################
 ##### Create intermediate Docker build stage for building framework in Rocky Linux environment
@@ -71,8 +74,8 @@ ARG REPO_URL \
     BUILD_SLOTH="true"
 
 COPY --chown=${USER} --from=rocky_init_repo ${WORKDIR}/ngen ${WORKDIR}/ngen
-COPY --chown=${USER} --from=awiciroh/t-route:tag-test ${WORKDIR}/t-route/wheels /tmp/t-route-wheels
-COPY --chown=${USER} --from=awiciroh/t-route:tag-test ${WORKDIR}/t-route/requirements.txt /tmp/t-route-requirements.txt
+COPY --chown=${USER} --from=troute ${WORKDIR}/t-route/wheels /tmp/t-route-wheels
+COPY --chown=${USER} --from=troute ${WORKDIR}/t-route/requirements.txt /tmp/t-route-requirements.txt
 ENV BOOST_ROOT=${WORKDIR}/boost
 
 USER root
