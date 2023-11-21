@@ -153,7 +153,7 @@ RUN cd ${WORKDIR}/ngen \
     && ln -s $(if [ "${BUILD_NGEN_PARALLEL}" == "true" ]; then echo "cmake_build_parallel"; else echo "cmake_build_serial"; fi) cmake_build \
     # Build the required submodules/external libs needed for running the tests later \
     # C++ functionality isn't separate, so always build the test_bmi_cpp shared lib (also needed for test_bmi_multi) \
-    && ./build_sub extern/test_bmi_cpp \
+    # && ./build_sub extern/test_bmi_cpp \
     # For the external language BMI integrations, conditionally build the test packages/libraries and run tests \
     &&  if [ "${NGEN_ACTIVATE_C}" == "ON" ]; then \
             ./build_sub extern/test_bmi_c; \
