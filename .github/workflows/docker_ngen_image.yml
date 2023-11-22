@@ -4,6 +4,9 @@ on:
     branches: [ main ]
     paths:
       - docker/**
+  pull_request:
+    branches: [ main, pr-merge, notreal ]
+
   workflow_run:
     workflows: [Build and push t-route image]
     types:
