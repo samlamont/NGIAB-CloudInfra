@@ -24,7 +24,12 @@ jobs:
           github-sha: ${{ github.sha }}
           image-name: "t-route"
           dockerfile-name: "Dockerfile.t-route"
-          tag-name: "tag-test"
+          tag-name: |
+            if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+              echo "latest-arm"
+            else
+              echo "${{ github.ref }}"
+            fi
           #commit-id: "a0ff6cf"
   on-failure:
     runs-on: self-hosted

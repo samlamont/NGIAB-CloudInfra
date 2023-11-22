@@ -24,7 +24,12 @@ jobs:
           github-sha: ${{ github.sha }}
           image-name: "ciroh-ngen-image"
           dockerfile-name: "Dockerfile"
-          tag-name: "tag-test"
+          tag-name: |
+            if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+              echo "latest-arm"
+            else
+              echo "${{ github.ref }}"
+            fi
       - name: Publish slack message
         if: always()
         uses: ./.github/action_templates/slack

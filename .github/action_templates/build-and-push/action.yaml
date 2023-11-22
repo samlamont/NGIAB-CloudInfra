@@ -47,7 +47,7 @@ runs:
         push: true
         platforms: linux/arm64
         tags: |
-          awiciroh/${{ inputs.image-name}}:${{ inputs.tag-name}}
+          awiciroh/${{ inputs.image-name}}:${{ github.ref }}
         builder: mybuilder
         no-cache: true
       env:

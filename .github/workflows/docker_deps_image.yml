@@ -26,4 +26,9 @@ jobs:
           github-sha: ${{ github.sha }}
           image-name: "ngen-deps"
           dockerfile-name: "Dockerfile.ngen-deps"
-          tag-name: "tag-test"
+          tag-name: |
+            if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+              echo "latest-arm"
+            else
+              echo "${{ github.ref }}"
+            fi
