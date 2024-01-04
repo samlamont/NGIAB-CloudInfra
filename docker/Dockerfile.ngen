@@ -179,3 +179,4 @@ RUN cd ${WORKDIR}/ngen \
     && mpirun -n 3 cmake_build_parallel/test/test_remote_nexus \
     && mpirun -n 4 cmake_build_parallel/test/test_remote_nexus \
     && find cmake_build* -type f -name "*" ! \( -name "*.so" -o -name "ngen" -o -name "partitionGenerator" \) -exec rm {} + 
+
