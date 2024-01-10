@@ -4,12 +4,8 @@ on:
     branches: [ main ]
     paths:
       - docker/**
-  pull_request:
-    branches: [ main ]
-    paths:
-      - docker/**
   workflow_dispatch:
-    
+  workflow_call:
 jobs:
   build-and-push:
     runs-on: self-hosted
@@ -23,6 +19,5 @@ jobs:
         uses: ./.github/action_templates/build-and-push
         with:
           docker-auth-token: ${{ secrets.DOCKER_AUTH_TOKEN }}
-          github-sha: ${{ github.sha }}
           image-name: "ngen-deps"
           dockerfile-name: "Dockerfile.ngen-deps"
