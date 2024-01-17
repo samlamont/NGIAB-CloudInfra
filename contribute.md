@@ -10,7 +10,7 @@ Please check our [issue tracker](https://github.com/CIROH-UA/NGIAB-CloudInfra/is
 
 ## How to Contribute
 
-1. If an Issue does not already exist, create one at https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?assignees=&labels=bug&projects=&template=bug_report.md&title=
+1. If an Issue does not already exist, you can use the [bug report template](https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?assignees=&labels=bug&projects=&template=bug_report.md&title=) to create one.
 
 2. Click on the “Create a branch” button to create a new branch. Choose the automatically selected branch.
 
