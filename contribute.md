@@ -5,7 +5,7 @@ Thank you for considering contributing to our project! We welcome contributions 
 
 ## Issue Tracking  
 
-Please check our [issue tracker](https://github.com/CIROH-UA/NGIAB-CloudInfra/issues/new?assignees=&labels=bug&projects=&template=bug_report.md&title=) for existing issues that you can work on. If you find a new issue or have a feature request, please open a new issue so we can discuss it and prioritize it accordingly.
+Please check our [issue tracker](https://github.com/CIROH-UA/NGIAB-CloudInfra/issues) for existing issues that you can work on. If you find a new issue or have a feature request, please open a new issue so we can discuss it and prioritize it accordingly.
 
 
 ## How to Contribute
