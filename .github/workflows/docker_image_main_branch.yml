@@ -37,7 +37,7 @@ jobs:
     secrets: inherit
   final:
     needs: ngen
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux, X86]
     steps:
       - name: deploy
         uses: actions/checkout@v2
@@ -49,7 +49,7 @@ jobs:
           dockerfile-name: "Dockerfile"
   check_result:
     needs: final
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux, X86]
     outputs:
       output1: ${{ steps.step1.outputs.result }}
     steps:
@@ -57,7 +57,7 @@ jobs:
         run: echo "result=success" >> "$GITHUB_OUTPUT"
 
   slack:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Linux, X86]
     if: ${{ always() }}
     needs: [deps, troute, ngen, final, check_result]
     env:
