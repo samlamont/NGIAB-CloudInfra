@@ -4,7 +4,7 @@
 ARG NGEN_BUILD_CONFIG_TYPE="Release" \
     REPO_URL=https://github.com/NOAA-OWP/ngen.git \
     BRANCH=master \
-    COMMIT \
+    COMMIT=779cf77 \
     WORKDIR=/ngen \
     TAG_NAME
 
@@ -15,7 +15,7 @@ ARG NGEN_BUILD_CONFIG_TYPE="Release" \
 FROM awiciroh/ngen-deps:${TAG_NAME} as rocky_init_repo
 ARG REPO_URL \
     BRANCH \
-    COMMIT \
+    COMMIT=779cf77 \
     WORKDIR \
     UPDATE=2023-04-27
 
@@ -56,7 +56,7 @@ FROM awiciroh/ngen-deps:${TAG_NAME} as rocky_build_ngen
 
 ARG REPO_URL \
     BRANCH \
-    COMMIT \
+    COMMIT=779cf77 \
     NGEN_BUILD_CONFIG_TYPE="Release" \
     NGEN_ACTIVATE_C="ON" \
     NGEN_ACTIVATE_FORTRAN="ON" \
