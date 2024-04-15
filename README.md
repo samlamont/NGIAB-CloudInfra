@@ -100,8 +100,8 @@ Navigate to NextGen directory and clone the repository using below commands:
 ```bash
     cd ../..
     git clone https://github.com/CIROH-UA/NGIAB-CloudInfra.git
-    git checkout main
     cd NGIAB-CloudInfra
+    git checkout main
 ```  
 Once you are in *NGIAB-CloudInfra* directory, you should see `guide.sh` in it. Now, we are ready to run the model using that script. 
 
