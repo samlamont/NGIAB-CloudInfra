@@ -148,4 +148,3 @@ cd NGIAB-CloudInfra
 - [Next Generation Water Modeling Engine and Framework Prototype](https://github.com/NOAA-OWP/ngen)
 - [NGIAB_data_preprocessor](https://github.com/AlabamaWaterInstitute/NGIAB_data_preprocess)
 - [ngen-datastream Repository](https://github.com/CIROH-UA/ngen-datastream/tree/main)
-![image](https://github.com/arpita0911patel/NGIAB-CloudInfra/assets/54657/e6ba827b-28c9-46a3-ae23-c32467964bc9)
