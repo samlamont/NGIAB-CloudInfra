@@ -33,7 +33,7 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 
 RUN pip3 install --upgrade pip
 RUN pip install wheel build
-RUN git clone --depth 1 --single-branch --branch remove_geopandas https://github.com/NOAA-OWP/t-route.git && \
+RUN git clone --depth 1 --single-branch --branch remove_geopandas https://github.com/JoshCu/t-route.git && \
     cd t-route && \
     git submodule update --init --depth 1 && \
     pip3 install -r requirements.txt && \
