@@ -205,7 +205,7 @@ echo -e "Any copied files can be found here: $HOST_DATA_PATH/outputs"
 # else
 #     IMAGE_NAME=a935462133478.dkr.ecr.us-east-2.amazonaws.com/teehr:latest
 # fi
-IMAGE_NAME=awiciroh/ngiab-teehr:latest
+IMAGE_NAME=awiciroh/ngiab-teehr
 while true; do
     echo -e "${YELLOW}Run a TEEHR Evaluation on the output (https://rtiinternational.github.io/ngiab-teehr/)? (y/N, default: y):${RESET}"
     read -r run_teehr_choice
@@ -223,9 +223,14 @@ done
 
 # Execute the command
 if [[ "$run_teehr_choice" == [Yy]* ]]; then
-    # TEEHR run options
+    # TEEHR run options  
+    echo -e "${UYellow}Specify the TEEHR image tag to use: ${Color_Off}"
+    read -erp "Image tag (ex. v0.1.4, default: 'latest'): " teehr_image_tag
+    if [[ -z "$teehr_image_tag" ]]; then
+        teehr_image_tag="latest"
+    fi    
     echo -e "${UYellow}Select an option (type a number): ${Color_Off}"
-    options=("Run TEEHR using existing local docker image" "Run TEEHR after updating to latest docker image" "Exit")
+    options=("Run TEEHR using existing local docker image" "Run TEEHR after pulling the docker image from the registry" "Exit")
     select option in "${options[@]}"; do
         case $option in
             "Run TEEHR using existing local docker image")
@@ -234,7 +239,7 @@ if [[ "$run_teehr_choice" == [Yy]* ]]; then
                 ;;
             "Run TEEHR after updating to latest docker image")
                 echo "pulling container and running the TEEHR evaluation"
-                docker pull $IMAGE_NAME
+                docker pull $IMAGE_NAME:$teehr_image_tag
                 break
                 ;;
             Exit)
@@ -246,7 +251,7 @@ if [[ "$run_teehr_choice" == [Yy]* ]]; then
         esac
     done
 
-    docker run -v "$HOST_DATA_PATH:/app/data" "$IMAGE_NAME"
+    docker run -v "$HOST_DATA_PATH:/app/data" "$IMAGE_NAME:$teehr_image_tag"
     echo -e "${GREEN}TEEHR evaluation complete.${RESET}\n"
 else
     echo -e "${CYAN}Skipping TEEHR evaluation step.${RESET}\n"
